@@ -2,8 +2,7 @@
 .idea
 db.sqlite3
 /src/db.sqlite3
-postgres/
-postgres_data/
+mysql_data/
 
 # created by virtualenv automatically
 # Byte-compiled / optimized / DLL files

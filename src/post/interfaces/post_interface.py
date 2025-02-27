@@ -5,7 +5,7 @@ from django.contrib.auth.base_user import AbstractBaseUser
 class PostRepositoryInterface(ABC):
 
     @abstractmethod
-    def create(self, email: str, password: str) -> AbstractBaseUser:
+    def create(self, user, text):
         pass
 
     @abstractmethod
@@ -13,7 +13,10 @@ class PostRepositoryInterface(ABC):
         pass
 
     @abstractmethod
-    def email_exists(self, email: str) -> bool:
+    def get_posts(self, user) -> bool:
+        pass
+
+    def delete_post(self, user, post_id):
         pass
 
 

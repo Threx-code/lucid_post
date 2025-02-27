@@ -1,9 +1,8 @@
-from asgiref.timeout import timeout
 from django.core.cache import cache
 from ..interfaces.post_interface import PostRepositoryInterface
 from ..models import Post
 
-class UserRepository(PostRepositoryInterface):
+class PostRepository(PostRepositoryInterface):
 
     def __init__(self):
         self.post = Post
@@ -21,7 +20,8 @@ class UserRepository(PostRepositoryInterface):
     def get_all(self):
         return self.post.objects.all()
 
-    def get_post(self, user):
+
+    def get_posts(self, user):
         cache_key = f'posts_{user.id}'
         posts = cache.get(cache_key)
         if not posts:

@@ -14,13 +14,13 @@ class PasswordValidation:
             validate_password(self.password)
             if any(part.lower() in self.password.lower() for part in self.email.split('@')[0].split('.')):
                 raise serializers.ValidationError("password cannot be part of email")
-            if re.search(input_fields.NUMBER_REGEX, self.password) is None:
+            if re.search( r'\d', self.password) is None:
                 raise serializers.ValidationError("password must contain a number")
-            if re.search(input_fields.UPPERCASE_REGEX, self.password) is None:
+            if re.search(r'[A-Z]', self.password) is None:
                 raise serializers.ValidationError("password must contain an uppercase")
-            if re.search(input_fields.LOWERCASE_REGEX, self.password) is None:
+            if re.search( r'[a-z]', self.password) is None:
                 raise serializers.ValidationError("password must contain a lowercase")
-            if re.search(input_fields.SPECIAL_CHARACTERS, self.password):
+            if re.search(r'[!"#$%&()*+,-./:;<=>?@\^_`{|}~]\'', self.password):
                 raise serializers.ValidationError("password must contain a special character")
         except serializers.ValidationError as e:
             raise serializers.ValidationError({"password": e.detail})

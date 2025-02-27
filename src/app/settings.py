@@ -36,8 +36,6 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG")
 
 ALLOWED_HOSTS = []
-
-SITE_NAME = env("SITE_NAME")
 SITE_ID = 1
 
 

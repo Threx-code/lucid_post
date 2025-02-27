@@ -1,0 +1,15 @@
+django>=5.1.5,<5.1.6
+djangorestframework
+python-decouple
+pytz
+pydantic
+django-rest-knox
+typing-extensions
+gunicorn
+mysqlclient
+django-redis
+pymemcache
+django-environ
+markdown
+pyyaml
+

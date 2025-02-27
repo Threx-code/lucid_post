@@ -1,0 +1,27 @@
+from django.contrib.auth.password_validation import validate_password
+from rest_framework import serializers
+import re
+
+class PasswordValidation:
+
+    def __init__(self, password: str, email: str):
+        self.password = password
+        self.email = email
+
+
+    def validate(self):
+        try:
+            validate_password(self.password)
+            if any(part.lower() in self.password.lower() for part in self.email.split('@')[0].split('.')):
+                raise serializers.ValidationError("password cannot be part of email")
+            if re.search(input_fields.NUMBER_REGEX, self.password) is None:
+                raise serializers.ValidationError("password must contain a number")
+            if re.search(input_fields.UPPERCASE_REGEX, self.password) is None:
+                raise serializers.ValidationError("password must contain an uppercase")
+            if re.search(input_fields.LOWERCASE_REGEX, self.password) is None:
+                raise serializers.ValidationError("password must contain a lowercase")
+            if re.search(input_fields.SPECIAL_CHARACTERS, self.password):
+                raise serializers.ValidationError("password must contain a special character")
+        except serializers.ValidationError as e:
+            raise serializers.ValidationError({"password": e.detail})
+        return self.password

@@ -151,7 +151,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # REST FRAMEWORK SETTINGS
 REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES":("knox.auth.TokenAuthentication", "rest_framework.authentication.SessionAuthentication"),
+    "DEFAULT_AUTHENTICATION_CLASSES":("knox.auth.TokenAuthentication",),
     "NON_FIELD_ERRORS_KEY": "error",
 }
 
@@ -179,5 +179,3 @@ REST_KNOX = {
     'EXPIRY_DATETIME_FORMAT': api_settings.DATETIME_FORMAT,
     'TOKEN_MODEL': 'knox.AuthToken',
 }
-
-

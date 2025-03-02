@@ -12,7 +12,7 @@ class PostService:
         return self.repository.get_all()
 
     def get_posts(self, user):
-        return self.repository.get_post(user)
+        return self.repository.get_posts(user)
 
     def delete_post(self, user, post_id):
         return self.repository.delete_post(user, post_id)
